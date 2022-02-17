@@ -18,7 +18,7 @@ class AnyCoordinatorClass {
     var children: [UUID: AnyObject] = [:]
     weak var parent: AnyCoordinator?
     
-    init(sceneIdentifier: UUID, presenter: UIViewController, parent: AnyCoordinator? = nil) {
+    init(sceneIdentifier: UUID = UUID(), presenter: UIViewController, parent: AnyCoordinator? = nil) {
         self.sceneIdentifier = sceneIdentifier
         self.presenter = presenter
         self.parent = parent

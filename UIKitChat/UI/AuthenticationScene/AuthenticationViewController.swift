@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  AuthenticationViewController.swift
 //  UIKitChat
 //
 //  Created by Seunghun Yang on 2022/02/17.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+final class AuthenticationViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
