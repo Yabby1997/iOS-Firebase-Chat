@@ -15,7 +15,10 @@ protocol AnyCoordinatorProtocol {
 class AnyCoordinatorClass {
     private let sceneIdentifier: UUID
     private (set) var presenter: UIViewController
+    
     var children: [UUID: AnyObject] = [:]
+    var cancellables: Set<AnyCancellable> = []
+    
     weak var parent: AnyCoordinator?
     
     init(sceneIdentifier: UUID = UUID(), presenter: UIViewController, parent: AnyCoordinator? = nil) {
@@ -34,9 +37,3 @@ class AnyCoordinatorClass {
 }
 
 typealias AnyCoordinator = AnyCoordinatorClass & AnyCoordinatorProtocol
-
-class CoordinatableViewModel {
-    private (set) var deinitSignalPublisher: PassthroughSubject<Void, Never> = PassthroughSubject()
-    
-    deinit { self.deinitSignalPublisher.send(()) }
-}

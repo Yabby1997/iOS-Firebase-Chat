@@ -22,6 +22,8 @@
 		1D21FABA27BE8B190080D251 /* ListViewCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D21FAB927BE8B190080D251 /* ListViewCoordinator.swift */; };
 		1D21FABC27BE8B2A0080D251 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D21FABB27BE8B2A0080D251 /* ListViewController.swift */; };
 		1D21FABE27BE8B300080D251 /* ListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D21FABD27BE8B300080D251 /* ListViewModel.swift */; };
+		1D21FAC127BE8E2A0080D251 /* UIControlPublisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D21FAC027BE8E2A0080D251 /* UIControlPublisher.swift */; };
+		1D21FAC327BE8E360080D251 /* UIGestureRecognizerPublisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D21FAC227BE8E360080D251 /* UIGestureRecognizerPublisher.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +41,8 @@
 		1D21FAB927BE8B190080D251 /* ListViewCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewCoordinator.swift; sourceTree = "<group>"; };
 		1D21FABB27BE8B2A0080D251 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		1D21FABD27BE8B300080D251 /* ListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewModel.swift; sourceTree = "<group>"; };
+		1D21FAC027BE8E2A0080D251 /* UIControlPublisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIControlPublisher.swift; sourceTree = "<group>"; };
+		1D21FAC227BE8E360080D251 /* UIGestureRecognizerPublisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIGestureRecognizerPublisher.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +81,7 @@
 				1D21FAB127BE86AA0080D251 /* GoogleService-Info.plist */,
 				1D21FA8B27BE7C8B0080D251 /* Resources */,
 				1D21FA8C27BE7C950080D251 /* App */,
+				1D21FABF27BE8DF70080D251 /* Utils */,
 				1D21FA8D27BE7C9A0080D251 /* UI */,
 				1D21FA9927BE83640080D251 /* Domain */,
 				1D21FA9C27BE839C0080D251 /* Data */,
@@ -243,6 +248,15 @@
 			path = Interfaces;
 			sourceTree = "<group>";
 		};
+		1D21FABF27BE8DF70080D251 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				1D21FAC027BE8E2A0080D251 /* UIControlPublisher.swift */,
+				1D21FAC227BE8E360080D251 /* UIGestureRecognizerPublisher.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -324,6 +338,8 @@
 			files = (
 				1D21FA7C27BE732D0080D251 /* AuthenticationViewController.swift in Sources */,
 				1D21FAB427BE876E0080D251 /* AuthenticationViewModel.swift in Sources */,
+				1D21FAC327BE8E360080D251 /* UIGestureRecognizerPublisher.swift in Sources */,
+				1D21FAC127BE8E2A0080D251 /* UIControlPublisher.swift in Sources */,
 				1D21FA7827BE732D0080D251 /* AppDelegate.swift in Sources */,
 				1D21FAAE27BE856A0080D251 /* AnyCoordinator.swift in Sources */,
 				1D21FA7A27BE732D0080D251 /* SceneDelegate.swift in Sources */,

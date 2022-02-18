@@ -10,7 +10,17 @@ import UIKit
 final class ListViewCoordinator: AnyCoordinator {
     func start() {
         guard let navigationController = presenter as? UINavigationController else { return }
-        let viewController = ListViewController()
+        
+        let viewModel = ListViewModel()
+        let viewController = ListViewController(viewModel: viewModel)
+        
+        viewModel.deinitSignal
+            .sink { [weak self] _ in
+                navigationController.popViewController(animated: true)
+                self?.removeFromParent()
+            }
+            .store(in: &self.cancellables)
+        
         navigationController.pushViewController(viewController, animated: false)
     }
 }
