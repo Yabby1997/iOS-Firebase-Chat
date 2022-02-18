@@ -24,6 +24,11 @@ final class ListViewController: UIViewController {
         bindUI()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        viewModel?.viewWillAppear()
+    }
+    
     private func configureUI() {
         view.backgroundColor = .yellow
     }
