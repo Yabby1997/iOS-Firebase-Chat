@@ -29,6 +29,8 @@
 		1D5436D127BFC6CA002A3D17 /* ChattingUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D5436D027BFC6CA002A3D17 /* ChattingUser.swift */; };
 		1D5436D327BFC9F6002A3D17 /* GetUserUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D5436D227BFC9F6002A3D17 /* GetUserUseCase.swift */; };
 		1D5436D527BFD9EE002A3D17 /* AuthenticationViewCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D5436D427BFD9EE002A3D17 /* AuthenticationViewCoordinator.swift */; };
+		1D5436D727C205BA002A3D17 /* AuthenticateUserUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D5436D627C205BA002A3D17 /* AuthenticateUserUseCase.swift */; };
+		1D5436DB27C20DE4002A3D17 /* SubtitledInputField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D5436DA27C20DE4002A3D17 /* SubtitledInputField.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -53,6 +55,8 @@
 		1D5436D027BFC6CA002A3D17 /* ChattingUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChattingUser.swift; sourceTree = "<group>"; };
 		1D5436D227BFC9F6002A3D17 /* GetUserUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetUserUseCase.swift; sourceTree = "<group>"; };
 		1D5436D427BFD9EE002A3D17 /* AuthenticationViewCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewCoordinator.swift; sourceTree = "<group>"; };
+		1D5436D627C205BA002A3D17 /* AuthenticateUserUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticateUserUseCase.swift; sourceTree = "<group>"; };
+		1D5436DA27C20DE4002A3D17 /* SubtitledInputField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubtitledInputField.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -182,6 +186,7 @@
 			isa = PBXGroup;
 			children = (
 				1D5436D227BFC9F6002A3D17 /* GetUserUseCase.swift */,
+				1D5436D627C205BA002A3D17 /* AuthenticateUserUseCase.swift */,
 			);
 			path = UseCases;
 			sourceTree = "<group>";
@@ -251,6 +256,7 @@
 		1D21FAA727BE84B70080D251 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				1D5436DA27C20DE4002A3D17 /* SubtitledInputField.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -359,6 +365,7 @@
 				1D5436D527BFD9EE002A3D17 /* AuthenticationViewCoordinator.swift in Sources */,
 				1D21FAAE27BE856A0080D251 /* AnyCoordinator.swift in Sources */,
 				1D5436D127BFC6CA002A3D17 /* ChattingUser.swift in Sources */,
+				1D5436DB27C20DE4002A3D17 /* SubtitledInputField.swift in Sources */,
 				1D21FA7A27BE732D0080D251 /* SceneDelegate.swift in Sources */,
 				1D21FABE27BE8B300080D251 /* ListViewModel.swift in Sources */,
 				1D21FAB827BE88370080D251 /* AppCoordinator.swift in Sources */,
@@ -366,6 +373,7 @@
 				1D5436D327BFC9F6002A3D17 /* GetUserUseCase.swift in Sources */,
 				1D21FABC27BE8B2A0080D251 /* ListViewController.swift in Sources */,
 				1D21FABA27BE8B190080D251 /* ListViewCoordinator.swift in Sources */,
+				1D5436D727C205BA002A3D17 /* AuthenticateUserUseCase.swift in Sources */,
 				1D5436CD27BFC59E002A3D17 /* GetUserUseCaseProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

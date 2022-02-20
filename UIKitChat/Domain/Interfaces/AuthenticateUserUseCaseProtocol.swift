@@ -6,7 +6,8 @@
 //
 
 import Combine
+import Foundation
 
 protocol AuthenticateUserUseCaseProtocol {
-    func authUser(chattingUser: ChattingUser) -> AnyPublisher<Void, Error>
+    func authUser(name: String, profileImageData: Data?) -> AnyPublisher<Void, Error>
 }
