@@ -10,19 +10,19 @@ import Foundation
 
 import Firebase
 
-enum FirebaseNetworkServiceError: LocalizedError {
-    case invalidDocumentSnapshot
-    case snapshotNotDecodable
+class FirebaseNetworkService: FirebaseNetworkServiceProtocol {
     
-    var errorDescription: String? {
-        switch self {
-        case .invalidDocumentSnapshot: return "올바르지 않은 스냅샷입니다."
-        case .snapshotNotDecodable: return "스냅샷 디코딩에 실패했습니다."
+    enum Errors: LocalizedError {
+        case invalidDocumentSnapshot
+        case snapshotNotDecodable
+        
+        var errorDescription: String? {
+            switch self {
+            case .invalidDocumentSnapshot: return "올바르지 않은 스냅샷입니다."
+            case .snapshotNotDecodable: return "스냅샷 디코딩에 실패했습니다."
+            }
         }
     }
-}
-
-class FirebaseNetworkService: FirebaseNetworkServiceProtocol {
     
     func getDocument(collection: String, document: String) -> AnyPublisher<[String: Any], Error> {
         return Future { promise in
@@ -30,7 +30,7 @@ class FirebaseNetworkService: FirebaseNetworkServiceProtocol {
                 .document(document)
                 .getDocument { snapshot, error in
                     if let error = error { return promise(.failure(error)) }
-                    guard let dictionary = snapshot?.data() else { return promise(.failure(FirebaseNetworkServiceError.invalidDocumentSnapshot)) }
+                    guard let dictionary = snapshot?.data() else { return promise(.failure(Errors.invalidDocumentSnapshot)) }
                     return promise(.success(dictionary))
                 }
         }
@@ -40,7 +40,7 @@ class FirebaseNetworkService: FirebaseNetworkServiceProtocol {
     func getDocument<T: DataTransferable>(collection: String, document: String) -> AnyPublisher<T, Error> {
         return getDocument(collection: collection, document: document)
             .tryMap { dictionary in
-                guard let decoded = T(dictionary: dictionary) else { throw FirebaseNetworkServiceError.snapshotNotDecodable }
+                guard let decoded = T(dictionary: dictionary) else { throw Errors.snapshotNotDecodable }
                 return decoded
             }
             .eraseToAnyPublisher()

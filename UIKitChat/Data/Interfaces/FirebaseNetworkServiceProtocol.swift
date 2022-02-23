@@ -14,3 +14,7 @@ protocol FirebaseNetworkServiceProtocol {
     func getDocument<T: DataTransferable>(collection: String, document: String) -> AnyPublisher<T, Error>
     func setDocument<T: DataTransferable>(collection: String, document: String, transferable: T) -> AnyPublisher<Void, Error>
 }
+
+enum FirebaseCollection {
+    static let chattingUser = "chattingUser"
+}
