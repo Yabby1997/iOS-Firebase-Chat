@@ -18,7 +18,6 @@ final class SubtitledInputField: UITextField {
         let transition = CATransition()
         transition.duration = 0.5
         transition.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
-        transition.type = CATransitionType.fade
         transition.subtype = CATransitionSubtype.fromTop
         return transition
     }()
@@ -110,7 +109,6 @@ final class SubtitledInputField: UITextField {
     
     private func changeSubtitleText(with text: String?) {
         subtitleLabel.text = text
-        textTransition.duration = animationDuration
         subtitleLabel.layer.add(textTransition, forKey: CATransitionType.fade.rawValue)
     }
     

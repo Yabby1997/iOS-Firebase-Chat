@@ -9,7 +9,9 @@ import Foundation
 
 class AuthenticationViewCoordinator: AnyCoordinator {
     func start() {
-        let authenticateUserUseCase = AuthenticateUserUseCase()
+        let firebaseNetworkService = FirebaseNetworkService()
+        let userRepository = UserRepository(firebaseNetworkService: firebaseNetworkService)
+        let authenticateUserUseCase = AuthenticateUserUseCase(userRepository: userRepository)
         let viewModel = AuthenticationViewModel(authenticateUserUseCase: authenticateUserUseCase)
         let viewController = AuthenticationViewController(viewModel: viewModel)
         viewController.modalPresentationStyle = .fullScreen
