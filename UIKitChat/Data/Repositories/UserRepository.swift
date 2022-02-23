@@ -22,6 +22,6 @@ class UserRepository: UserRepositoryProtocol {
     }
     
     func fetchUser(uid: String) -> AnyPublisher<ChattingUser, Error> {
-        return Just(ChattingUser(name: "", profileImage: URL(string: "https://naver.com")!)).setFailureType(to: Error.self).eraseToAnyPublisher()
+        return firebaseNetworkService.getDocument(collection: FirebaseCollection.chattingUser, document: uid)
     }
 }
