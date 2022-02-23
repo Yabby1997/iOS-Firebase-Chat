@@ -27,6 +27,14 @@ final class AuthenticationViewController: UIViewController {
         subtitledInputField.textAlignment = .center
         return subtitledInputField
     }()
+    
+    private let tempSignupButton: UIButton = {
+        let button = UIButton()
+        button.setTitle("회원가입", for: .normal)
+        button.titleLabel?.font = .systemFont(ofSize: 20, weight: .bold)
+        button.setTitleColor(.systemGreen, for: .normal)
+        return button
+    }()
 
     // MARK: - Properties
     
@@ -76,6 +84,13 @@ final class AuthenticationViewController: UIViewController {
             inputField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 60),
             inputField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -60)
         ])
+        
+        view.addSubview(tempSignupButton)
+        tempSignupButton.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            tempSignupButton.topAnchor.constraint(equalTo: inputField.bottomAnchor, constant: 32),
+            tempSignupButton.centerXAnchor.constraint(equalTo: view.centerXAnchor)
+        ])
     }
     
     private func bindUI() {
@@ -84,6 +99,12 @@ final class AuthenticationViewController: UIViewController {
         inputField.publisher(for: .editingChanged)
             .map { ($0 as? UITextField)?.text ?? "" }
             .assign(to: \.name, on: viewModel)
+            .store(in: &self.cancellables)
+        
+        tempSignupButton.publisher(for: .touchUpInside)
+            .sink { _ in
+                self.viewModel?.authenticateButtonDidTap()
+            }
             .store(in: &self.cancellables)
     }
 }

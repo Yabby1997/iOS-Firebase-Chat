@@ -41,9 +41,9 @@ final class ListViewModel: ListViewModelProtocol {
             .sink { [weak self] completion in
                 guard case .failure(let error) = completion else { return }
                 self?.error = error
+                self?.userNotAuthenticatedPublisher.send(())
             } receiveValue: { [weak self] chattingUser in
                 self?.chattingUser = chattingUser
-                self?.userNotAuthenticatedPublisher.send(())
             }
             .store(in: &self.cancellables)
     }
