@@ -11,7 +11,9 @@ final class ListViewCoordinator: AnyCoordinator {
     func start() {
         guard let navigationController = presenter as? UINavigationController else { return }
         
-        let getUserUseCase = GetUserUseCase()
+        let firebaseNetworkService = FirebaseNetworkService()
+        let userRepository = UserRepository(firebaseNetworkService: firebaseNetworkService)
+        let getUserUseCase = GetUserUseCase(userRepository: userRepository)
         let viewModel = ListViewModel(getUserUseCase: getUserUseCase)
         let viewController = ListViewController(viewModel: viewModel)
         

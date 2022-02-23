@@ -35,17 +35,15 @@ final class ListViewModel: ListViewModelProtocol {
     }
     
     func viewWillAppear() {
-        getUserUseCase.getUser()
+        guard let currentUserUid = AuthManager.currentUser?.uid else { return userNotAuthenticatedPublisher.send(()) }
+        
+        getUserUseCase.getUser(uid: currentUserUid)
             .sink { [weak self] completion in
                 guard case .failure(let error) = completion else { return }
                 self?.error = error
             } receiveValue: { [weak self] chattingUser in
-                if let chattingUser = chattingUser {
-                    self?.chattingUser = chattingUser
-                }
-                else {
-                    self?.userNotAuthenticatedPublisher.send(())
-                }
+                self?.chattingUser = chattingUser
+                self?.userNotAuthenticatedPublisher.send(())
             }
             .store(in: &self.cancellables)
     }

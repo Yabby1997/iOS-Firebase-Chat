@@ -8,5 +8,5 @@
 import Combine
 
 protocol GetUserUseCaseProtocol {
-    func getUser() -> AnyPublisher<ChattingUser?, Error>
+    func getUser(uid: String) -> AnyPublisher<ChattingUser, Error>
 }

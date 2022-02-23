@@ -8,7 +8,14 @@
 import Combine
 
 class GetUserUseCase: GetUserUseCaseProtocol {
-    func getUser() -> AnyPublisher<ChattingUser?, Error> {
-        return Just(nil).setFailureType(to: Error.self).eraseToAnyPublisher()
+    
+    private let userRepository: UserRepositoryProtocol
+    
+    init(userRepository: UserRepositoryProtocol) {
+        self.userRepository = userRepository
+    }
+    
+    func getUser(uid: String) -> AnyPublisher<ChattingUser, Error> {
+        return userRepository.fetchUser(uid: uid)
     }
 }
