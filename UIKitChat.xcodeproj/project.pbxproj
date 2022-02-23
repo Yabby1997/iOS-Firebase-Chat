@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1D04FBBF27C3AC3F000C23DC /* UserRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D04FBBE27C3AC3F000C23DC /* UserRepositoryProtocol.swift */; };
+		1D04FBC127C3AC54000C23DC /* UserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D04FBC027C3AC54000C23DC /* UserRepository.swift */; };
 		1D04FBC327C3AE6A000C23DC /* FirebaseNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D04FBC227C3AE6A000C23DC /* FirebaseNetworkService.swift */; };
 		1D04FBC527C3AE76000C23DC /* FirebaseNetworkServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D04FBC427C3AE76000C23DC /* FirebaseNetworkServiceProtocol.swift */; };
 		1D04FBC727C3B5C2000C23DC /* DataTransferable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D04FBC627C3B5C2000C23DC /* DataTransferable.swift */; };
@@ -38,6 +40,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1D04FBBE27C3AC3F000C23DC /* UserRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepositoryProtocol.swift; sourceTree = "<group>"; };
+		1D04FBC027C3AC54000C23DC /* UserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepository.swift; sourceTree = "<group>"; };
 		1D04FBC227C3AE6A000C23DC /* FirebaseNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseNetworkService.swift; sourceTree = "<group>"; };
 		1D04FBC427C3AE76000C23DC /* FirebaseNetworkServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseNetworkServiceProtocol.swift; sourceTree = "<group>"; };
 		1D04FBC627C3B5C2000C23DC /* DataTransferable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataTransferable.swift; sourceTree = "<group>"; };
@@ -195,6 +199,7 @@
 			children = (
 				1D5436CC27BFC59E002A3D17 /* GetUserUseCaseProtocol.swift */,
 				1D5436CE27BFC5C0002A3D17 /* AuthenticateUserUseCaseProtocol.swift */,
+				1D04FBBE27C3AC3F000C23DC /* UserRepositoryProtocol.swift */,
 			);
 			path = Interfaces;
 			sourceTree = "<group>";
@@ -238,6 +243,7 @@
 		1D21FA9F27BE84030080D251 /* Repositories */ = {
 			isa = PBXGroup;
 			children = (
+				1D04FBC027C3AC54000C23DC /* UserRepository.swift */,
 			);
 			path = Repositories;
 			sourceTree = "<group>";
@@ -397,7 +403,9 @@
 				1D5436D327BFC9F6002A3D17 /* GetUserUseCase.swift in Sources */,
 				1D21FABC27BE8B2A0080D251 /* ListViewController.swift in Sources */,
 				1D21FABA27BE8B190080D251 /* ListViewCoordinator.swift in Sources */,
+				1D04FBBF27C3AC3F000C23DC /* UserRepositoryProtocol.swift in Sources */,
 				1D5436D727C205BA002A3D17 /* AuthenticateUserUseCase.swift in Sources */,
+				1D04FBC127C3AC54000C23DC /* UserRepository.swift in Sources */,
 				1D5436CD27BFC59E002A3D17 /* GetUserUseCaseProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
