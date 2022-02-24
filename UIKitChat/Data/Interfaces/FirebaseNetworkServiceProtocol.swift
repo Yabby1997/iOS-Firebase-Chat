@@ -9,12 +9,17 @@ import Combine
 import Foundation
 
 protocol FirebaseNetworkServiceProtocol {
-    func getDocument(collection: String, document: String) -> AnyPublisher<[String: Any], Error>
-    func setDocument(collection: String, document: String, dictionary: [String: Any]) -> AnyPublisher<Void, Error>
-    func getDocument<T: DataTransferable>(collection: String, document: String) -> AnyPublisher<T, Error>
-    func setDocument<T: DataTransferable>(collection: String, document: String, transferable: T) -> AnyPublisher<Void, Error>
+    func getDocument(collection: FirebaseCollection, document: String) -> AnyPublisher<[String: Any], Error>
+    func setDocument(collection: FirebaseCollection, document: String, dictionary: [String: Any]) -> AnyPublisher<Void, Error>
+    func getDocument<T: DataTransferable>(collection: FirebaseCollection, document: String) -> AnyPublisher<T, Error>
+    func setDocument<T: DataTransferable>(collection: FirebaseCollection, document: String, transferable: T) -> AnyPublisher<Void, Error>
+    func uploadData(path: FirestorePath, data: Data) -> AnyPublisher<URL, Error>
 }
 
-enum FirebaseCollection {
-    static let chattingUser = "chattingUser"
+enum FirebaseCollection: String {
+    case chattingUser = "chattingUser"
+}
+
+enum FirestorePath: String {
+    case profileImage = "profileImage"
 }
