@@ -16,6 +16,11 @@ protocol FirebaseNetworkServiceProtocol {
     func uploadData(path: FirestorePath, data: Data) -> AnyPublisher<URL, Error>
 }
 
+protocol DataTransferable {
+    init?(dictionary: [String: Any])
+    var dictionary: [String: Any] { get }
+}
+
 enum FirebaseCollection: String {
     case chattingUser = "chattingUser"
 }
