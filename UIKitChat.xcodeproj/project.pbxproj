@@ -19,6 +19,7 @@
 		1D04FBF927C7BE53000C23DC /* DownloadNetworkServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D04FBF827C7BE53000C23DC /* DownloadNetworkServiceProtocol.swift */; };
 		1D04FBFB27C7BED8000C23DC /* DownloadNetworService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D04FBFA27C7BED8000C23DC /* DownloadNetworService.swift */; };
 		1D04FBFD27C7BF14000C23DC /* URLSessionDownloadTaskPublisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D04FBFC27C7BF14000C23DC /* URLSessionDownloadTaskPublisher.swift */; };
+		1D04FBFF27C7C129000C23DC /* DataCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D04FBFE27C7C129000C23DC /* DataCache.swift */; };
 		1D21FA7827BE732D0080D251 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D21FA7727BE732D0080D251 /* AppDelegate.swift */; };
 		1D21FA7A27BE732D0080D251 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D21FA7927BE732D0080D251 /* SceneDelegate.swift */; };
 		1D21FA7C27BE732D0080D251 /* AuthenticationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D21FA7B27BE732D0080D251 /* AuthenticationViewController.swift */; };
@@ -51,6 +52,7 @@
 		1D04FBF827C7BE53000C23DC /* DownloadNetworkServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadNetworkServiceProtocol.swift; sourceTree = "<group>"; };
 		1D04FBFA27C7BED8000C23DC /* DownloadNetworService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadNetworService.swift; sourceTree = "<group>"; };
 		1D04FBFC27C7BF14000C23DC /* URLSessionDownloadTaskPublisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionDownloadTaskPublisher.swift; sourceTree = "<group>"; };
+		1D04FBFE27C7C129000C23DC /* DataCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataCache.swift; sourceTree = "<group>"; };
 		1D21FA7427BE732D0080D251 /* UIKitChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UIKitChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1D21FA7727BE732D0080D251 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1D21FA7927BE732D0080D251 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -95,6 +97,7 @@
 			isa = PBXGroup;
 			children = (
 				1D04FBC927C6627E000C23DC /* AuthManager.swift */,
+				1D04FBFE27C7C129000C23DC /* DataCache.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -412,6 +415,7 @@
 				1D21FAB827BE88370080D251 /* AppCoordinator.swift in Sources */,
 				1D5436CF27BFC5C0002A3D17 /* AuthenticateUserUseCaseProtocol.swift in Sources */,
 				1D5436D327BFC9F6002A3D17 /* GetUserUseCase.swift in Sources */,
+				1D04FBFF27C7C129000C23DC /* DataCache.swift in Sources */,
 				1D21FABC27BE8B2A0080D251 /* ListViewController.swift in Sources */,
 				1D21FABA27BE8B190080D251 /* ListViewCoordinator.swift in Sources */,
 				1D04FBBF27C3AC3F000C23DC /* UserRepositoryProtocol.swift in Sources */,
