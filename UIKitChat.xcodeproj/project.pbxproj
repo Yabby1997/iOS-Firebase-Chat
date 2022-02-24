@@ -17,7 +17,9 @@
 		1D04FBEF27C7B8DC000C23DC /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 1D04FBEE27C7B8DC000C23DC /* FirebaseFirestore */; };
 		1D04FBF127C7B8DC000C23DC /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = 1D04FBF027C7B8DC000C23DC /* FirebaseMessaging */; };
 		1D04FBF327C7B8DC000C23DC /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 1D04FBF227C7B8DC000C23DC /* FirebaseStorage */; };
-		1D04FBF727C7B926000C23DC /* DataRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D04FBF627C7B926000C23DC /* DataRepositoryProtocol.swift */; };
+		1D04FBF927C7BE53000C23DC /* DownloadNetworkServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D04FBF827C7BE53000C23DC /* DownloadNetworkServiceProtocol.swift */; };
+		1D04FBFB27C7BED8000C23DC /* DownloadNetworService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D04FBFA27C7BED8000C23DC /* DownloadNetworService.swift */; };
+		1D04FBFD27C7BF14000C23DC /* URLSessionDownloadTaskPublisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D04FBFC27C7BF14000C23DC /* URLSessionDownloadTaskPublisher.swift */; };
 		1D21FA7827BE732D0080D251 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D21FA7727BE732D0080D251 /* AppDelegate.swift */; };
 		1D21FA7A27BE732D0080D251 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D21FA7927BE732D0080D251 /* SceneDelegate.swift */; };
 		1D21FA7C27BE732D0080D251 /* AuthenticationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D21FA7B27BE732D0080D251 /* AuthenticationViewController.swift */; };
@@ -48,6 +50,9 @@
 		1D04FBC427C3AE76000C23DC /* FirebaseNetworkServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseNetworkServiceProtocol.swift; sourceTree = "<group>"; };
 		1D04FBC627C3B5C2000C23DC /* DataTransferable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataTransferable.swift; sourceTree = "<group>"; };
 		1D04FBC927C6627E000C23DC /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
+		1D04FBF827C7BE53000C23DC /* DownloadNetworkServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadNetworkServiceProtocol.swift; sourceTree = "<group>"; };
+		1D04FBFA27C7BED8000C23DC /* DownloadNetworService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadNetworService.swift; sourceTree = "<group>"; };
+		1D04FBFC27C7BF14000C23DC /* URLSessionDownloadTaskPublisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionDownloadTaskPublisher.swift; sourceTree = "<group>"; };
 		1D21FA7427BE732D0080D251 /* UIKitChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UIKitChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1D21FA7727BE732D0080D251 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1D21FA7927BE732D0080D251 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -238,6 +243,7 @@
 			isa = PBXGroup;
 			children = (
 				1D04FBC427C3AE76000C23DC /* FirebaseNetworkServiceProtocol.swift */,
+				1D04FBF827C7BE53000C23DC /* DownloadNetworkServiceProtocol.swift */,
 				1D04FBC627C3B5C2000C23DC /* DataTransferable.swift */,
 			);
 			path = Interfaces;
@@ -278,6 +284,7 @@
 			isa = PBXGroup;
 			children = (
 				1D04FBC227C3AE6A000C23DC /* FirebaseNetworkService.swift */,
+				1D04FBFA27C7BED8000C23DC /* DownloadNetworService.swift */,
 			);
 			path = Networks;
 			sourceTree = "<group>";
@@ -303,6 +310,7 @@
 			children = (
 				1D21FAC027BE8E2A0080D251 /* UIControlPublisher.swift */,
 				1D21FAC227BE8E360080D251 /* UIGestureRecognizerPublisher.swift */,
+				1D04FBFC27C7BF14000C23DC /* URLSessionDownloadTaskPublisher.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -389,13 +397,16 @@
 			files = (
 				1D21FA7C27BE732D0080D251 /* AuthenticationViewController.swift in Sources */,
 				1D04FBCA27C6627E000C23DC /* AuthManager.swift in Sources */,
+				1D04FBFD27C7BF14000C23DC /* URLSessionDownloadTaskPublisher.swift in Sources */,
 				1D21FAB427BE876E0080D251 /* AuthenticationViewModel.swift in Sources */,
 				1D21FAC327BE8E360080D251 /* UIGestureRecognizerPublisher.swift in Sources */,
 				1D04FBC527C3AE76000C23DC /* FirebaseNetworkServiceProtocol.swift in Sources */,
+				1D04FBF927C7BE53000C23DC /* DownloadNetworkServiceProtocol.swift in Sources */,
 				1D21FAC127BE8E2A0080D251 /* UIControlPublisher.swift in Sources */,
 				1D21FA7827BE732D0080D251 /* AppDelegate.swift in Sources */,
 				1D5436D527BFD9EE002A3D17 /* AuthenticationViewCoordinator.swift in Sources */,
 				1D21FAAE27BE856A0080D251 /* AnyCoordinator.swift in Sources */,
+				1D04FBFB27C7BED8000C23DC /* DownloadNetworService.swift in Sources */,
 				1D04FBC327C3AE6A000C23DC /* FirebaseNetworkService.swift in Sources */,
 				1D04FBC727C3B5C2000C23DC /* DataTransferable.swift in Sources */,
 				1D5436D127BFC6CA002A3D17 /* ChattingUser.swift in Sources */,
