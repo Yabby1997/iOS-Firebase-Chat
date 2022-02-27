@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 class AuthenticationViewCoordinator: AnyCoordinator {
     func start() {
@@ -14,7 +15,9 @@ class AuthenticationViewCoordinator: AnyCoordinator {
         let authenticateUserUseCase = AuthenticateUserUseCase(userRepository: userRepository)
         let viewModel = AuthenticationViewModel(authenticateUserUseCase: authenticateUserUseCase)
         let viewController = AuthenticationViewController(viewModel: viewModel)
-        viewController.modalPresentationStyle = .fullScreen
+        
+        let navigationController = UINavigationController(rootViewController: viewController)
+        navigationController.modalPresentationStyle = .fullScreen
         
         viewModel.deinitSignalPublisher
             .sink { [weak self] _ in
@@ -22,6 +25,6 @@ class AuthenticationViewCoordinator: AnyCoordinator {
             }
             .store(in: &self.cancellables)
         
-        presenter.present(viewController, animated: true)
+        presenter.present(navigationController, animated: true)
     }
 }

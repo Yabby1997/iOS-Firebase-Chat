@@ -41,6 +41,7 @@
 		1D5436D527BFD9EE002A3D17 /* AuthenticationViewCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D5436D427BFD9EE002A3D17 /* AuthenticationViewCoordinator.swift */; };
 		1D5436D727C205BA002A3D17 /* AuthenticateUserUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D5436D627C205BA002A3D17 /* AuthenticateUserUseCase.swift */; };
 		1D5436DB27C20DE4002A3D17 /* SubtitledInputField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D5436DA27C20DE4002A3D17 /* SubtitledInputField.swift */; };
+		1D642F7427CB5CC100A5A0D5 /* FloatingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D642F7327CB5CC100A5A0D5 /* FloatingButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -76,6 +77,7 @@
 		1D5436D427BFD9EE002A3D17 /* AuthenticationViewCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewCoordinator.swift; sourceTree = "<group>"; };
 		1D5436D627C205BA002A3D17 /* AuthenticateUserUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticateUserUseCase.swift; sourceTree = "<group>"; };
 		1D5436DA27C20DE4002A3D17 /* SubtitledInputField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubtitledInputField.swift; sourceTree = "<group>"; };
+		1D642F7327CB5CC100A5A0D5 /* FloatingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -293,6 +295,7 @@
 			isa = PBXGroup;
 			children = (
 				1D5436DA27C20DE4002A3D17 /* SubtitledInputField.swift */,
+				1D642F7327CB5CC100A5A0D5 /* FloatingButton.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -418,6 +421,7 @@
 				1D04FBFF27C7C129000C23DC /* DataCache.swift in Sources */,
 				1D21FABC27BE8B2A0080D251 /* ListViewController.swift in Sources */,
 				1D21FABA27BE8B190080D251 /* ListViewCoordinator.swift in Sources */,
+				1D642F7427CB5CC100A5A0D5 /* FloatingButton.swift in Sources */,
 				1D04FBBF27C3AC3F000C23DC /* UserRepositoryProtocol.swift in Sources */,
 				1D5436D727C205BA002A3D17 /* AuthenticateUserUseCase.swift in Sources */,
 				1D04FBC127C3AC54000C23DC /* UserRepository.swift in Sources */,

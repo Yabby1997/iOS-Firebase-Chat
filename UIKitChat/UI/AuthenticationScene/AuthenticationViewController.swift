@@ -28,11 +28,11 @@ final class AuthenticationViewController: UIViewController {
         return subtitledInputField
     }()
     
-    private let tempSignupButton: UIButton = {
-        let button = UIButton()
-        button.setTitle("회원가입", for: .normal)
-        button.titleLabel?.font = .systemFont(ofSize: 20, weight: .bold)
-        button.setTitleColor(.systemGreen, for: .normal)
+    private let nextButton: FloatingButton = {
+        let button = FloatingButton()
+        button.iconImage = UIImage(systemName: "heart.fill")
+        button.iconColor = .white
+        button.iconInsets = UIEdgeInsets(top: -16, left: 16, bottom: 16, right: -16)
         return button
     }()
 
@@ -85,11 +85,13 @@ final class AuthenticationViewController: UIViewController {
             inputField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -60)
         ])
         
-        view.addSubview(tempSignupButton)
-        tempSignupButton.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(nextButton)
+        nextButton.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            tempSignupButton.topAnchor.constraint(equalTo: inputField.bottomAnchor, constant: 32),
-            tempSignupButton.centerXAnchor.constraint(equalTo: view.centerXAnchor)
+            nextButton.heightAnchor.constraint(equalToConstant: 70),
+            nextButton.widthAnchor.constraint(equalToConstant: 70),
+            nextButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -30),
+            nextButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -30)
         ])
     }
     
@@ -99,13 +101,19 @@ final class AuthenticationViewController: UIViewController {
         inputField.publisher(for: .editingChanged)
             .map { ($0 as? UITextField)?.text ?? "" }
             .assign(to: \.name, on: viewModel)
-            .store(in: &self.cancellables)
+            .store(in: &cancellables)
         
-        tempSignupButton.publisher(for: .touchUpInside)
-            .sink { _ in
-                self.viewModel?.authenticateButtonDidTap()
+        nextButton.publisher(for: .touchUpInside)
+            .sink { [weak self] _ in
+                self?.viewModel?.authenticateButtonDidTap()
             }
-            .store(in: &self.cancellables)
+            .store(in: &cancellables)
+        
+        viewModel.isAuthenticateButtonEnabledPublisher
+            .sink { [weak self] isAuthenticateButtonEnabled in
+                self?.nextButton.isEnabled = isAuthenticateButtonEnabled
+            }
+            .store(in: &cancellables)
     }
 }
 

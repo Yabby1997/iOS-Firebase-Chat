@@ -21,6 +21,8 @@ enum AuthenticationViewModelErrors: LocalizedError {
 protocol AuthenticationViewModelProtocol {
     var deinitSignalPublisher: PassthroughSubject<Void, Never> { get }
     var errorPublisher: AnyPublisher<Error?, Never> { get }
+    var isAuthenticateButtonEnabledPublisher: AnyPublisher<Bool, Never> { get }
+    
     var name: String { get set }
     var profileImage: Data? { get set }
     
@@ -30,10 +32,13 @@ protocol AuthenticationViewModelProtocol {
 final class AuthenticationViewModel: AuthenticationViewModelProtocol {
     var deinitSignalPublisher: PassthroughSubject<Void, Never> = PassthroughSubject()
     var errorPublisher: AnyPublisher<Error?, Never> { $error.eraseToAnyPublisher() }
+    var isAuthenticateButtonEnabledPublisher: AnyPublisher<Bool, Never> { $name.map { !$0.isEmpty }.eraseToAnyPublisher() }
+    
     @Published var name: String = ""
     @Published var profileImage: Data? = nil
     
     @Published private var error: Error? = nil
+    
     private var cancellables: Set<AnyCancellable> = []
     private let authenticateUserUseCase: AuthenticateUserUseCaseProtocol
     
