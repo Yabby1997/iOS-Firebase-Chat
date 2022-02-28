@@ -42,6 +42,7 @@
 		1D5436D727C205BA002A3D17 /* AuthenticateUserUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D5436D627C205BA002A3D17 /* AuthenticateUserUseCase.swift */; };
 		1D5436DB27C20DE4002A3D17 /* SubtitledInputField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D5436DA27C20DE4002A3D17 /* SubtitledInputField.swift */; };
 		1D642F7427CB5CC100A5A0D5 /* FloatingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D642F7327CB5CC100A5A0D5 /* FloatingButton.swift */; };
+		1D642F7D27CB96DB00A5A0D5 /* UIImage+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D642F7C27CB96DB00A5A0D5 /* UIImage+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -78,6 +79,7 @@
 		1D5436D627C205BA002A3D17 /* AuthenticateUserUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticateUserUseCase.swift; sourceTree = "<group>"; };
 		1D5436DA27C20DE4002A3D17 /* SubtitledInputField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubtitledInputField.swift; sourceTree = "<group>"; };
 		1D642F7327CB5CC100A5A0D5 /* FloatingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingButton.swift; sourceTree = "<group>"; };
+		1D642F7C27CB96DB00A5A0D5 /* UIImage+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,6 +161,7 @@
 		1D21FA8D27BE7C9A0080D251 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				1D642F7927CB96C600A5A0D5 /* Constants */,
 				1D21FAAA27BE852D0080D251 /* Interfaces */,
 				1D21FAA727BE84B70080D251 /* Views */,
 				1D21FA9727BE82CB0080D251 /* ListScene */,
@@ -318,6 +321,14 @@
 			path = Utils;
 			sourceTree = "<group>";
 		};
+		1D642F7927CB96C600A5A0D5 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				1D642F7C27CB96DB00A5A0D5 /* UIImage+Extensions.swift */,
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -426,6 +437,7 @@
 				1D5436D727C205BA002A3D17 /* AuthenticateUserUseCase.swift in Sources */,
 				1D04FBC127C3AC54000C23DC /* UserRepository.swift in Sources */,
 				1D5436CD27BFC59E002A3D17 /* GetUserUseCaseProtocol.swift in Sources */,
+				1D642F7D27CB96DB00A5A0D5 /* UIImage+Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

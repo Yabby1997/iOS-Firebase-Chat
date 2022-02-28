@@ -14,8 +14,8 @@ final class AuthenticationViewController: UIViewController {
     
     private let descriptionLabel: UILabel = {
         let label = UILabel()
-        label.text = "표시될 이름을 입력해주세요."
-        label.font = .systemFont(ofSize: 20, weight: .bold)
+        label.text = "당신의 이름은..."
+        label.font = .systemFont(ofSize: 30, weight: .bold)
         return label
     }()
     
@@ -30,7 +30,7 @@ final class AuthenticationViewController: UIViewController {
     
     private let nextButton: FloatingButton = {
         let button = FloatingButton()
-        button.iconImage = UIImage(systemName: "heart.fill")
+        button.iconImage = UIImage.arrowForward
         button.iconColor = .white
         button.iconInsets = UIEdgeInsets(top: -16, left: 16, bottom: 16, right: -16)
         return button
@@ -40,6 +40,9 @@ final class AuthenticationViewController: UIViewController {
     
     private var viewModel: AuthenticationViewModel?
     private var cancellables: Set<AnyCancellable> = []
+    private lazy var nextButtonBottomConstraint: NSLayoutConstraint = nextButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -30)
+    private var keyboardHeight: CGFloat = 0
+    @Published var isKeyboardShowing: Bool = false
     
     // MARK: - Initializers
     
@@ -52,17 +55,6 @@ final class AuthenticationViewController: UIViewController {
         super.viewDidLoad()
         configureUI()
         bindUI()
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
-            self.inputField.barColor = .red
-            self.inputField.subtitle = "안되는 경우 테스트"
-            self.inputField.vibrate()
-        }
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
-            self.inputField.barColor = .systemGreen
-            self.inputField.subtitle = "잘 되는 경우 테스트"
-        }
     }
     
     // MARK: - Helpers
@@ -73,14 +65,16 @@ final class AuthenticationViewController: UIViewController {
         view.addSubview(descriptionLabel)
         descriptionLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            descriptionLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            descriptionLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor)
+            descriptionLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 60),
+            descriptionLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -60),
+            descriptionLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -60)
         ])
         
         view.addSubview(inputField)
         inputField.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            inputField.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: 16),
+            inputField.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            inputField.centerYAnchor.constraint(equalTo: view.centerYAnchor),
             inputField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 60),
             inputField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -60)
         ])
@@ -91,7 +85,7 @@ final class AuthenticationViewController: UIViewController {
             nextButton.heightAnchor.constraint(equalToConstant: 70),
             nextButton.widthAnchor.constraint(equalToConstant: 70),
             nextButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -30),
-            nextButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -30)
+            nextButtonBottomConstraint
         ])
     }
     
@@ -114,6 +108,34 @@ final class AuthenticationViewController: UIViewController {
                 self?.nextButton.isEnabled = isAuthenticateButtonEnabled
             }
             .store(in: &cancellables)
+        
+        NotificationCenter.default.publisher(for: UIResponder.keyboardWillShowNotification, object: nil)
+            .compactMap { ($0.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue.height }
+            .sink { [weak self] height in
+                self?.keyboardHeight = height
+                self?.isKeyboardShowing = true
+            }
+            .store(in: &cancellables)
+        
+        NotificationCenter.default.publisher(for: UIResponder.keyboardWillHideNotification, object: nil)
+            .sink { [weak self] _ in
+                self?.isKeyboardShowing = false
+            }
+            .store(in: &cancellables)
+        
+        $isKeyboardShowing
+            .removeDuplicates()
+            .sink { [weak self] isShowing in
+                self?.updateKeyboardHeight(isKeyboardShowing: isShowing)
+            }
+            .store(in: &cancellables)
+    }
+    
+    func updateKeyboardHeight(isKeyboardShowing: Bool) {
+        UIView.animate(withDuration: 0.1, delay: 0, options: .curveEaseIn) {
+            self.nextButtonBottomConstraint.constant -= isKeyboardShowing ? self.keyboardHeight : -self.keyboardHeight
+            self.view.layoutIfNeeded()
+        }
     }
 }
 
