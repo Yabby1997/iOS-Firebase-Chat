@@ -19,6 +19,12 @@ class AuthenticationViewCoordinator: AnyCoordinator {
         let navigationController = UINavigationController(rootViewController: viewController)
         navigationController.modalPresentationStyle = .fullScreen
         
+        viewModel.userDidAuthenticatedPublisher
+            .sink { [weak self] _ in
+                self?.userDidAuthenticated(presenter: navigationController)
+            }
+            .store(in: &self.cancellables)
+        
         viewModel.deinitSignalPublisher
             .sink { [weak self] _ in
                 self?.presenter.dismiss(animated: true)
@@ -26,5 +32,16 @@ class AuthenticationViewCoordinator: AnyCoordinator {
             .store(in: &self.cancellables)
         
         presenter.present(navigationController, animated: true)
+    }
+    
+    private func userDidAuthenticated(presenter: UINavigationController) {
+        let sceneIdentifier = UUID()
+        let coordinator = ProfileImageSelectionViewCoordinator(
+            sceneIdentifier: sceneIdentifier,
+            presenter: presenter,
+            parent: self
+        )
+        children[sceneIdentifier] = coordinator
+        coordinator.start()
     }
 }

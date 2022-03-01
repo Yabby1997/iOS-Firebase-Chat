@@ -43,6 +43,9 @@
 		1D5436DB27C20DE4002A3D17 /* SubtitledInputField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D5436DA27C20DE4002A3D17 /* SubtitledInputField.swift */; };
 		1D642F7427CB5CC100A5A0D5 /* FloatingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D642F7327CB5CC100A5A0D5 /* FloatingButton.swift */; };
 		1D642F7D27CB96DB00A5A0D5 /* UIImage+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D642F7C27CB96DB00A5A0D5 /* UIImage+Extensions.swift */; };
+		1DB1360627CE5C9600E6325B /* ProfileImageSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DB1360527CE5C9600E6325B /* ProfileImageSelectionViewController.swift */; };
+		1DB1360A27CE5EA800E6325B /* ProfileImageSelectionViewCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DB1360927CE5EA800E6325B /* ProfileImageSelectionViewCoordinator.swift */; };
+		1DB1360D27CE5EBC00E6325B /* ProfileImageSelectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DB1360C27CE5EBC00E6325B /* ProfileImageSelectionViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -80,6 +83,9 @@
 		1D5436DA27C20DE4002A3D17 /* SubtitledInputField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubtitledInputField.swift; sourceTree = "<group>"; };
 		1D642F7327CB5CC100A5A0D5 /* FloatingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingButton.swift; sourceTree = "<group>"; };
 		1D642F7C27CB96DB00A5A0D5 /* UIImage+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extensions.swift"; sourceTree = "<group>"; };
+		1DB1360527CE5C9600E6325B /* ProfileImageSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImageSelectionViewController.swift; sourceTree = "<group>"; };
+		1DB1360927CE5EA800E6325B /* ProfileImageSelectionViewCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImageSelectionViewCoordinator.swift; sourceTree = "<group>"; };
+		1DB1360C27CE5EBC00E6325B /* ProfileImageSelectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImageSelectionViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -166,6 +172,7 @@
 				1D21FAA727BE84B70080D251 /* Views */,
 				1D21FA9727BE82CB0080D251 /* ListScene */,
 				1D21FA9527BE82BE0080D251 /* AuthenticationScene */,
+				1DB1360727CE5E9200E6325B /* ProfileImageSelectionScene */,
 				1D21FA9827BE82D90080D251 /* ChatScene */,
 			);
 			path = UI;
@@ -329,6 +336,16 @@
 			path = Constants;
 			sourceTree = "<group>";
 		};
+		1DB1360727CE5E9200E6325B /* ProfileImageSelectionScene */ = {
+			isa = PBXGroup;
+			children = (
+				1DB1360927CE5EA800E6325B /* ProfileImageSelectionViewCoordinator.swift */,
+				1DB1360527CE5C9600E6325B /* ProfileImageSelectionViewController.swift */,
+				1DB1360C27CE5EBC00E6325B /* ProfileImageSelectionViewModel.swift */,
+			);
+			path = ProfileImageSelectionScene;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -418,6 +435,7 @@
 				1D04FBF927C7BE53000C23DC /* DownloadNetworkServiceProtocol.swift in Sources */,
 				1D21FAC127BE8E2A0080D251 /* UIControlPublisher.swift in Sources */,
 				1D21FA7827BE732D0080D251 /* AppDelegate.swift in Sources */,
+				1DB1360627CE5C9600E6325B /* ProfileImageSelectionViewController.swift in Sources */,
 				1D5436D527BFD9EE002A3D17 /* AuthenticationViewCoordinator.swift in Sources */,
 				1D21FAAE27BE856A0080D251 /* AnyCoordinator.swift in Sources */,
 				1D04FBFB27C7BED8000C23DC /* DownloadNetworService.swift in Sources */,
@@ -429,8 +447,10 @@
 				1D21FAB827BE88370080D251 /* AppCoordinator.swift in Sources */,
 				1D5436CF27BFC5C0002A3D17 /* AuthenticateUserUseCaseProtocol.swift in Sources */,
 				1D5436D327BFC9F6002A3D17 /* GetUserUseCase.swift in Sources */,
+				1DB1360D27CE5EBC00E6325B /* ProfileImageSelectionViewModel.swift in Sources */,
 				1D04FBFF27C7C129000C23DC /* DataCache.swift in Sources */,
 				1D21FABC27BE8B2A0080D251 /* ListViewController.swift in Sources */,
+				1DB1360A27CE5EA800E6325B /* ProfileImageSelectionViewCoordinator.swift in Sources */,
 				1D21FABA27BE8B190080D251 /* ListViewCoordinator.swift in Sources */,
 				1D642F7427CB5CC100A5A0D5 /* FloatingButton.swift in Sources */,
 				1D04FBBF27C3AC3F000C23DC /* UserRepositoryProtocol.swift in Sources */,

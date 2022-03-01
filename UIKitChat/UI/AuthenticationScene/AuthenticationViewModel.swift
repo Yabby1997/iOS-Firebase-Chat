@@ -20,6 +20,7 @@ enum AuthenticationViewModelErrors: LocalizedError {
 
 protocol AuthenticationViewModelProtocol {
     var deinitSignalPublisher: PassthroughSubject<Void, Never> { get }
+    var userDidAuthenticatedPublisher: PassthroughSubject<Void, Never> { get }
     var errorPublisher: AnyPublisher<Error?, Never> { get }
     var isAuthenticateButtonEnabledPublisher: AnyPublisher<Bool, Never> { get }
     
@@ -31,6 +32,7 @@ protocol AuthenticationViewModelProtocol {
 
 final class AuthenticationViewModel: AuthenticationViewModelProtocol {
     var deinitSignalPublisher: PassthroughSubject<Void, Never> = PassthroughSubject()
+    var userDidAuthenticatedPublisher: PassthroughSubject<Void, Never> = PassthroughSubject()
     var errorPublisher: AnyPublisher<Error?, Never> { $error.eraseToAnyPublisher() }
     var isAuthenticateButtonEnabledPublisher: AnyPublisher<Bool, Never> { $name.map { !$0.isEmpty }.eraseToAnyPublisher() }
     
@@ -54,7 +56,7 @@ final class AuthenticationViewModel: AuthenticationViewModelProtocol {
                 guard case .failure(let error) = completion else { return }
                 self?.error = error
             } receiveValue: { [weak self] signal in
-                self?.deinitSignalPublisher.send(signal)
+                self?.userDidAuthenticatedPublisher.send(signal)
             }
             .store(in: &self.cancellables)
     }

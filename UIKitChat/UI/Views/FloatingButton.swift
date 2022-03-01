@@ -58,6 +58,8 @@ final class FloatingButton: UIButton {
     // MARK: - Helpers
     
     private func configureUI() {
+        updateBackgroundColor()
+        
         addSubview(buttonIcon)
         buttonIcon.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
