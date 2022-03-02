@@ -16,7 +16,7 @@ class AuthenticateUserUseCase: AuthenticateUserUseCaseProtocol {
         self.userRepository = userRepository
     }
     
-    func authUser(name: String, profileImage: Data?) -> AnyPublisher<Void, Error> {
+    func authUser(name: String) -> AnyPublisher<Void, Error> {
         return Future<Void, Error> { [weak self] promise in
             var cancellables: Set<AnyCancellable> = []
             
@@ -26,7 +26,7 @@ class AuthenticateUserUseCase: AuthenticateUserUseCaseProtocol {
                     guard case .failure(let error) = completion else { return }
                     return promise(.failure(error))
                 } receiveValue: { [weak self] uid in
-                    self?.userRepository.authUser(uid: uid, name: name, profileImage: profileImage)
+                    self?.userRepository.authUser(uid: uid, name: name)
                         .sink { completion in
                             guard case .failure(let error) = completion else { return }
                             AuthManager.signOut()

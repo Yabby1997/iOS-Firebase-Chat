@@ -51,7 +51,7 @@ final class AuthenticationViewModel: AuthenticationViewModelProtocol {
     func authenticateButtonDidTap() {
         if name.isEmpty { return error = AuthenticationViewModelErrors.nameNotProvided }
         
-        authenticateUserUseCase.authUser(name: name, profileImage: profileImage)
+        authenticateUserUseCase.authUser(name: name)
             .sink { [weak self] completion in
                 guard case .failure(let error) = completion else { return }
                 self?.error = error

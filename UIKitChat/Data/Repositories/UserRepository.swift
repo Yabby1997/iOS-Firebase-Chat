@@ -16,7 +16,7 @@ class UserRepository: UserRepositoryProtocol {
         self.firebaseNetworkService = firebaseNetworkService
     }
     
-    func authUser(uid: String, name: String, profileImage: Data?) -> AnyPublisher<Void, Error> {
+    func authUser(uid: String, name: String) -> AnyPublisher<Void, Error> {
         let chattingUser = ChattingUser(name: name, profileImage: nil)
         return firebaseNetworkService.setDocument(collection: FirebaseCollection.chattingUser, document: uid, transferable: chattingUser)
     }

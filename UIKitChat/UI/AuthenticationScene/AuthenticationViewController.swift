@@ -57,6 +57,11 @@ final class AuthenticationViewController: UIViewController {
         bindUI()
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        inputField.resignFirstResponder()
+    }
+    
     // MARK: - Helpers
     
     private func configureUI() {
@@ -126,7 +131,14 @@ final class AuthenticationViewController: UIViewController {
         $isKeyboardShowing
             .removeDuplicates()
             .sink { [weak self] isShowing in
+                print(isShowing)
                 self?.updateKeyboardHeight(isKeyboardShowing: isShowing)
+            }
+            .store(in: &cancellables)
+        
+        view.publisher(for: UITapGestureRecognizer())
+            .sink { [weak self] _ in
+                self?.inputField.resignFirstResponder()
             }
             .store(in: &cancellables)
     }

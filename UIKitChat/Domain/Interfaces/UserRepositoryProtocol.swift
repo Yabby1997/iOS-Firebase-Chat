@@ -9,6 +9,6 @@ import Combine
 import Foundation
 
 protocol UserRepositoryProtocol {
-    func authUser(uid: String, name: String, profileImage: Data?) -> AnyPublisher<Void, Error>
+    func authUser(uid: String, name: String) -> AnyPublisher<Void, Error>
     func fetchUser(uid: String) -> AnyPublisher<ChattingUser, Error>
 }

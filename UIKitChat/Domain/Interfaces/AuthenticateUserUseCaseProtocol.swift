@@ -9,5 +9,5 @@ import Combine
 import Foundation
 
 protocol AuthenticateUserUseCaseProtocol {
-    func authUser(name: String, profileImage: Data?) -> AnyPublisher<Void, Error>
+    func authUser(name: String) -> AnyPublisher<Void, Error>
 }
