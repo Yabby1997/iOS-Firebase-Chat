@@ -7,10 +7,21 @@
 
 import Combine
 import UIKit
+import PhotosUI
 
 final class ProfileImageSelectionViewController: UIViewController {
     
     // MARK: - Subviews
+    
+    private let profileImageView: CircularImageView = {
+        let imageView = CircularImageView()
+        imageView.image = UIImage(systemName: "plus")
+        imageView.contentMode = .scaleAspectFill
+        imageView.clipsToBounds = true
+        imageView.layer.borderWidth = 2.0
+        imageView.isUserInteractionEnabled = true
+        return imageView
+    }()
     
     private let nextButton: FloatingButton = {
         let button = FloatingButton()
@@ -43,6 +54,15 @@ final class ProfileImageSelectionViewController: UIViewController {
     private func configureUI() {
         view.backgroundColor = .systemBackground
         
+        view.addSubview(profileImageView)
+        profileImageView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            profileImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            profileImageView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            profileImageView.heightAnchor.constraint(equalToConstant: 250),
+            profileImageView.widthAnchor.constraint(equalToConstant: 250)
+        ])
+        
         view.addSubview(nextButton)
         nextButton.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
@@ -59,5 +79,37 @@ final class ProfileImageSelectionViewController: UIViewController {
                 self?.viewModel?.uploadButtonDidTap()
             }
             .store(in: &cancellables)
+        
+        profileImageView.publisher(for: UITapGestureRecognizer())
+            .sink { [weak self] _ in
+                self?.viewModel?.profileImageDidTap()
+            }
+            .store(in: &cancellables)
+    }
+    
+    private func bindViewModel() {
+        guard let viewModel = viewModel else { return }
+        
+        viewModel.profileImagePublisher
+            .compactMap { $0 }
+            .map { UIImage(data: $0) }
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] image in
+                self?.profileImageView.image = image
+            }
+            .store(in: &cancellables)
+    }
+}
+
+extension ProfileImageSelectionViewController: PHPickerViewControllerDelegate {
+    func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
+        picker.dismiss(animated: true)
+        let itemProvider = results.first?.itemProvider
+        guard let itemProvider = itemProvider, itemProvider.canLoadObject(ofClass: UIImage.self) else { return }
+        itemProvider.loadObject(ofClass: UIImage.self) { [weak self] image, error in
+            if let error = error { self?.viewModel?.error = error }
+            guard let imageData = (image as? UIImage)?.jpegData(compressionQuality: 0.75) else { return }
+            self?.viewModel?.profileImage = imageData
+        }
     }
 }
