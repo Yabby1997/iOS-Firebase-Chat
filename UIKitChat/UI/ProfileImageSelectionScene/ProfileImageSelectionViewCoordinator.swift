@@ -32,7 +32,7 @@ final class ProfileImageSelectionViewCoordinator: AnyCoordinator {
     private func presentPhotoPicker(on viewController: UIViewController, delegater: PHPickerViewControllerDelegate) {
         var configuration = PHPickerConfiguration()
         configuration.selectionLimit = 1
-        configuration.filter = .any(of: [.images, .livePhotos])
+        configuration.filter = .any(of: [.images])
         let pickerViewController = PHPickerViewController(configuration: configuration)
         pickerViewController.delegate = delegater
         viewController.present(pickerViewController, animated: true)

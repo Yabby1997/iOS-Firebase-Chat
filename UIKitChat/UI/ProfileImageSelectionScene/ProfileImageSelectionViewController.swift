@@ -13,15 +13,7 @@ final class ProfileImageSelectionViewController: UIViewController {
     
     // MARK: - Subviews
     
-    private let profileImageView: CircularImageView = {
-        let imageView = CircularImageView()
-        imageView.image = UIImage(systemName: "plus")
-        imageView.contentMode = .scaleAspectFill
-        imageView.clipsToBounds = true
-        imageView.layer.borderWidth = 2.0
-        imageView.isUserInteractionEnabled = true
-        return imageView
-    }()
+    private let profileImageView: ProfileImageView = ProfileImageView()
     
     private let nextButton: FloatingButton = {
         let button = FloatingButton()
@@ -47,6 +39,7 @@ final class ProfileImageSelectionViewController: UIViewController {
         super.viewDidLoad()
         configureUI()
         bindUI()
+        bindViewModel()
     }
     
     // MARK: - Helpers
@@ -59,7 +52,6 @@ final class ProfileImageSelectionViewController: UIViewController {
         NSLayoutConstraint.activate([
             profileImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             profileImageView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-            profileImageView.heightAnchor.constraint(equalToConstant: 250),
             profileImageView.widthAnchor.constraint(equalToConstant: 250)
         ])
         
@@ -104,8 +96,10 @@ final class ProfileImageSelectionViewController: UIViewController {
 extension ProfileImageSelectionViewController: PHPickerViewControllerDelegate {
     func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
         picker.dismiss(animated: true)
-        let itemProvider = results.first?.itemProvider
-        guard let itemProvider = itemProvider, itemProvider.canLoadObject(ofClass: UIImage.self) else { return }
+        
+        guard let itemProvider = results.first?.itemProvider,
+              itemProvider.canLoadObject(ofClass: UIImage.self) else { return }
+        
         itemProvider.loadObject(ofClass: UIImage.self) { [weak self] image, error in
             if let error = error { self?.viewModel?.error = error }
             guard let imageData = (image as? UIImage)?.jpegData(compressionQuality: 0.75) else { return }

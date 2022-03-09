@@ -10,4 +10,5 @@ import UIKit
 extension UIImage {
     static let arrowForward = UIImage(systemName: "arrow.forward")
     static let arrowBackward = UIImage(systemName: "arrow.backward")
+    static let anonymous = UIImage(named: "anonymous")
 }

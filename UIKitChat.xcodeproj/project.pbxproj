@@ -46,7 +46,7 @@
 		1DB1360627CE5C9600E6325B /* ProfileImageSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DB1360527CE5C9600E6325B /* ProfileImageSelectionViewController.swift */; };
 		1DB1360A27CE5EA800E6325B /* ProfileImageSelectionViewCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DB1360927CE5EA800E6325B /* ProfileImageSelectionViewCoordinator.swift */; };
 		1DB1360D27CE5EBC00E6325B /* ProfileImageSelectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DB1360C27CE5EBC00E6325B /* ProfileImageSelectionViewModel.swift */; };
-		1DC0008527CFAF6300A481E4 /* CircularImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DC0008427CFAF6300A481E4 /* CircularImageView.swift */; };
+		1DC0008527CFAF6300A481E4 /* ProfileImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DC0008427CFAF6300A481E4 /* ProfileImageView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -87,7 +87,7 @@
 		1DB1360527CE5C9600E6325B /* ProfileImageSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImageSelectionViewController.swift; sourceTree = "<group>"; };
 		1DB1360927CE5EA800E6325B /* ProfileImageSelectionViewCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImageSelectionViewCoordinator.swift; sourceTree = "<group>"; };
 		1DB1360C27CE5EBC00E6325B /* ProfileImageSelectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImageSelectionViewModel.swift; sourceTree = "<group>"; };
-		1DC0008427CFAF6300A481E4 /* CircularImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularImageView.swift; sourceTree = "<group>"; };
+		1DC0008427CFAF6300A481E4 /* ProfileImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImageView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -308,7 +308,7 @@
 			children = (
 				1D5436DA27C20DE4002A3D17 /* SubtitledInputField.swift */,
 				1D642F7327CB5CC100A5A0D5 /* FloatingButton.swift */,
-				1DC0008427CFAF6300A481E4 /* CircularImageView.swift */,
+				1DC0008427CFAF6300A481E4 /* ProfileImageView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -445,7 +445,7 @@
 				1D04FBC327C3AE6A000C23DC /* FirebaseNetworkService.swift in Sources */,
 				1D5436D127BFC6CA002A3D17 /* ChattingUser.swift in Sources */,
 				1D5436DB27C20DE4002A3D17 /* SubtitledInputField.swift in Sources */,
-				1DC0008527CFAF6300A481E4 /* CircularImageView.swift in Sources */,
+				1DC0008527CFAF6300A481E4 /* ProfileImageView.swift in Sources */,
 				1D21FA7A27BE732D0080D251 /* SceneDelegate.swift in Sources */,
 				1D21FABE27BE8B300080D251 /* ListViewModel.swift in Sources */,
 				1D21FAB827BE88370080D251 /* AppCoordinator.swift in Sources */,
