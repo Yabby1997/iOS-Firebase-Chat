@@ -47,6 +47,8 @@
 		1DB1360A27CE5EA800E6325B /* ProfileImageSelectionViewCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DB1360927CE5EA800E6325B /* ProfileImageSelectionViewCoordinator.swift */; };
 		1DB1360D27CE5EBC00E6325B /* ProfileImageSelectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DB1360C27CE5EBC00E6325B /* ProfileImageSelectionViewModel.swift */; };
 		1DC0008527CFAF6300A481E4 /* ProfileImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DC0008427CFAF6300A481E4 /* ProfileImageView.swift */; };
+		1DCA87D127E20BF70066E75A /* ProfileImageUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DCA87D027E20BF70066E75A /* ProfileImageUseCase.swift */; };
+		1DCA87D327E20C280066E75A /* ProfileImageUseCaseProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DCA87D227E20C280066E75A /* ProfileImageUseCaseProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -88,6 +90,8 @@
 		1DB1360927CE5EA800E6325B /* ProfileImageSelectionViewCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImageSelectionViewCoordinator.swift; sourceTree = "<group>"; };
 		1DB1360C27CE5EBC00E6325B /* ProfileImageSelectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImageSelectionViewModel.swift; sourceTree = "<group>"; };
 		1DC0008427CFAF6300A481E4 /* ProfileImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImageView.swift; sourceTree = "<group>"; };
+		1DCA87D027E20BF70066E75A /* ProfileImageUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImageUseCase.swift; sourceTree = "<group>"; };
+		1DCA87D227E20C280066E75A /* ProfileImageUseCaseProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImageUseCaseProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -223,6 +227,7 @@
 				1D5436CC27BFC59E002A3D17 /* GetUserUseCaseProtocol.swift */,
 				1D5436CE27BFC5C0002A3D17 /* AuthenticateUserUseCaseProtocol.swift */,
 				1D04FBBE27C3AC3F000C23DC /* UserRepositoryProtocol.swift */,
+				1DCA87D227E20C280066E75A /* ProfileImageUseCaseProtocol.swift */,
 			);
 			path = Interfaces;
 			sourceTree = "<group>";
@@ -232,6 +237,7 @@
 			children = (
 				1D5436D227BFC9F6002A3D17 /* GetUserUseCase.swift */,
 				1D5436D627C205BA002A3D17 /* AuthenticateUserUseCase.swift */,
+				1DCA87D027E20BF70066E75A /* ProfileImageUseCase.swift */,
 			);
 			path = UseCases;
 			sourceTree = "<group>";
@@ -443,6 +449,7 @@
 				1D21FAAE27BE856A0080D251 /* AnyCoordinator.swift in Sources */,
 				1D04FBFB27C7BED8000C23DC /* DownloadNetworService.swift in Sources */,
 				1D04FBC327C3AE6A000C23DC /* FirebaseNetworkService.swift in Sources */,
+				1DCA87D327E20C280066E75A /* ProfileImageUseCaseProtocol.swift in Sources */,
 				1D5436D127BFC6CA002A3D17 /* ChattingUser.swift in Sources */,
 				1D5436DB27C20DE4002A3D17 /* SubtitledInputField.swift in Sources */,
 				1DC0008527CFAF6300A481E4 /* ProfileImageView.swift in Sources */,
@@ -453,6 +460,7 @@
 				1D5436D327BFC9F6002A3D17 /* GetUserUseCase.swift in Sources */,
 				1DB1360D27CE5EBC00E6325B /* ProfileImageSelectionViewModel.swift in Sources */,
 				1D04FBFF27C7C129000C23DC /* DataCache.swift in Sources */,
+				1DCA87D127E20BF70066E75A /* ProfileImageUseCase.swift in Sources */,
 				1D21FABC27BE8B2A0080D251 /* ListViewController.swift in Sources */,
 				1DB1360A27CE5EA800E6325B /* ProfileImageSelectionViewCoordinator.swift in Sources */,
 				1D21FABA27BE8B190080D251 /* ListViewCoordinator.swift in Sources */,
